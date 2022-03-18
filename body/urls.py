@@ -16,6 +16,12 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
+from bodybuild import views
+from bodybuild.views import show_index, login, logout
+
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('', show_index),
+    path('login/', login),
+    path('logout/', logout),
 ]
