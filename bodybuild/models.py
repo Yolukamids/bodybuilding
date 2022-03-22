@@ -8,6 +8,20 @@
 from django.db import models
 
 
+class Action(models.Model):
+    act_id = models.AutoField(primary_key=True)
+    act_name = models.CharField(max_length=20)
+    act_lvl = models.CharField(max_length=20)
+    act_type = models.CharField(max_length=50)
+    act_position = models.CharField(max_length=50)
+    act_pic_url = models.CharField(max_length=1024)
+    act_vid_url = models.CharField(max_length=1024)
+
+    class Meta:
+        managed = False
+        db_table = 'tb_action'
+
+
 class User(models.Model):
     user_id = models.BigAutoField(primary_key=True)
     username = models.CharField(unique=True, max_length=20)

@@ -12,16 +12,13 @@ from django.shortcuts import render, redirect
 from django.utils import timezone
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
-
+from wechatpy.oauth import WeChatOAuth
 
 from bodybuild.models import User
 from bodybuild.utils import check_username, check_password, gen_sha256_digest
 
 
 def show_index(request: HttpRequest):
-    html_code = '<h1>hello world!</h1>'
-    fruits = [1, 2, 3, 4, 5, 6, 7]
-    select_fruits = random.sample(fruits, 4)
     return redirect('/static/index.html')
 
 
@@ -31,6 +28,7 @@ def login(request):
     if request.method == 'POST':
         username = request.data.get('username', '').strip()
         password = request.data.get('password', '')
+        print(check_username(username), check_password(password))
         if check_username(username) and check_password(password):
             password = gen_sha256_digest(password)
             user = User.objects.filter(Q(username=username) | Q(usertel=username)) \
@@ -49,12 +47,10 @@ def login(request):
                 hint = '登录失败，用户名或密码错误'
         else:
             hint = '请输入有效的登录信息'
-    print(2)
     return Response({'code': 40001, 'hint': hint})
 
 
 def logout(request):
-    request.session.flush()
-    resp = redirect('/static/lyear_pages_login_3.html')
+    resp = redirect('/')
     resp.delete_cookie('username')
     return resp

@@ -1,0 +1,31 @@
+.box1 {
+	border: 1px solid red;
+	list-style: none;
+	width: 350px;
+	height: 250px;
+	float: left;
+	margin: 10px 10px;
+}
+.box1 a {
+	color: black;
+}
+.box1 a:hover {
+	color: red;
+}
+.box_list {
+	height: 100%;
+	width: 100%;
+}
+.pagination_box {
+	float: left;
+	margin-left: 650px;
+	margin-bottom: 100px;
+}
+.action_body{
+	height: auto;
+	width: 100%;
+}
+#action_box {
+	height: auto;
+	width: 100%;
+}

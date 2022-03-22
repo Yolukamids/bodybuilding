@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+        PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>用户信息</title>
+    <meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" name="viewport"/>
+    <meta content="yes" name="apple-mobile-web-app-capable"/>
+    <meta content="black" name="apple-mobile-web-app-status-bar-style"/>
+    <meta content="telephone=no" name="format-detection"/>
+    <!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- 可选的 Bootstrap 主题文件（一般不用引入） -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap-theme.min.css"
+          integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+    <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js"
+            integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+            crossorigin="anonymous"></script>
+</head>
+<body>
+<div class="container-fluid">
+    <table class="table table-bordered table-striped">
+        <thead>
+        <tr>
+            <th>属性</th>
+            <th>值</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <th scope="row">
+                <code>微信头像</code>
+            </th>
+            <td><img src="{{ user_info.headimgurl }}" alt=""/></td>
+        </tr>
+        <tr>
+            <th scope="row">
+                <code>openid</code>
+            </th>
+            <td>{{ user_info.openid }}</td>
+        </tr>
+        <tr>
+            <th scope="row">
+                <code>昵称</code>
+            </th>
+            <td>{{ user_info.nickname }}</td>
+        </tr>
+        <tr>
+            <th scope="row">
+                <code>性别</code>
+            </th>
+            <td>{{ user_info.sex }}</td>
+        </tr>
+        <tr>
+            <th scope="row">
+                <code>语言</code>
+            </th>
+            <td>{{ user_info.language }}</td>
+        </tr>
+        <tr>
+            <th scope="row">
+                <code>城市</code>
+            </th>
+            <td>{{ user_info.country }}-{{ user_info.province }}-{{ user_info.city }}</td>
+        </tr>
+        <tr>
+            <th scope="row">
+                <code>标签</code>
+            </th>
+            <td>{{ user_info.privilege }}</td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>

@@ -146,10 +146,10 @@
                     }
                 }).then(resp => resp.json()).then(json => {
                     if (json.code === 40000) {
-                        localStorage.token = json.token
-                        localStorage.username = json.username
-                        localStorage.nickname = json.nickname
-                        localStorage.avatar = json.avatar
+                        sessionStorage.setItem("token", json.token)
+                        sessionStorage.setItem("username", json.username)
+                        sessionStorage.setItem("nickname", json.nickname)
+                        sessionStorage.setItem("avatar", json.avatar)
                         location.href = '/'
                     } else {
                         this.hint = json.hint
