@@ -17,11 +17,14 @@ from django.contrib import admin
 from django.urls import path
 
 from bodybuild import views
-from bodybuild.views import show_index, login, logout
+from bodybuild.views import show_index, login, logout, insert_data, show_action, action_display
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', show_index),
     path('login/', login),
     path('logout/', logout),
+    path('insert/', insert_data),
+    path('actions/', show_action),
+    path('video/', action_display, name='action'),
 ]

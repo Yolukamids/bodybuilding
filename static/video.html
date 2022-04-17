@@ -15,7 +15,7 @@
 </head>
 
 <body>
-<div class="lyear-layout-web">
+<div class="lyear-layout-web" id="header">
   <div class="lyear-layout-container">
     <!--左侧导航-->
     <aside class="lyear-layout-sidebar">
@@ -51,7 +51,7 @@
             <li class="nav-item nav-item-has-subnav">
               <a href="javascript:void(0)"><i class="mdi mdi-format-align-justify"></i>动作库</a>
               <ul class="nav nav-subnav">
-                <li> <a href="lyear_forms_elements.html">基本元素</a> </li>
+                <li> <a href="action_base.html">基本元素</a> </li>
                 <li> <a href="lyear_forms_radio.html">单选框</a> </li>
                 <li> <a href="lyear_forms_checkbox.html">复选框</a> </li>
                 <li> <a href="lyear_forms_switch.html">开关</a> </li>
@@ -117,7 +117,7 @@
     <!--End 左侧导航-->
 
     <!--头部信息-->
-    <header id="header" class="lyear-layout-header">
+    <header class="lyear-layout-header">
 
       <nav class="navbar navbar-default">
         <div class="topbar">
@@ -284,58 +284,24 @@
 
     <!--页面主要内容-->
     <main class="lyear-layout-content">
-        <div class="action_body">
-            <div id="action_box">
-                <ul id="box_list">
-                        <li class="box1"><a href="#"><img src="images/actions/1-1四足俯卧撑.jpg"><span>四足俯卧撑</span></a></li>
-                        <li class="box1"><a href="#"><img src="images/actions/1-2跪姿俯卧撑.jpg"><span>四足俯卧撑</span></a></li>
-                        <li class="box1"><a href="#"><img src="images/actions/1-3标准俯卧撑.jpg"><span>四足俯卧撑</span></a></li>
-                        <li class="box1"><a href="#"><img src="images/actions/1-4原地爬行.jpg"><span>四足俯卧撑</span></a></li>
-                        <li class="box1"><a href="#"><img src="images/actions/1-5直腿原地爬行.jpg"><span>四足俯卧撑</span></a></li>
-                        <li class="box1"><a href="#"><img src="images/actions/1-6波比.jpg"><span>四足俯卧撑</span></a></li>
-                        <li class="box1"><a href="#"><img src="images/actions/1-7胸椎稳定运动%20L.jpg"><span>四足俯卧撑</span></a></li>
-                        <li class="box1"><a href="#"><img src="images/actions/1-8俯身转体抬臂%20L.jpg"><span>四足俯卧撑</span></a></li>
-                        <li class="box1"><a href="#"><img src="images/actions/1-9胸椎稳定运动%20R.jpg"><span>四足俯卧撑</span></a></li>
-                        <li class="box1"><a href="#"><img src="images/actions/1-10俯身转体抬臂%20R.jpg"><span>四足俯卧撑</span></a></li>
-                        <li class="box1"><a href="#"><img src="images/actions/1-11弓步转体拉伸%20L.jpg"><span>四足俯卧撑</span></a></li>
-                        <li class="box1"><a href="#"><img src="images/actions/1-12弓步转体拉伸%20R.jpg"><span>四足俯卧撑</span></a></li>
-                        <li class="box1"><a href="#"><img src="images/actions/1-13弓步转体抬臂.jpg"><span>四足俯卧撑</span></a></li>
-                        <li class="box1"><a href="#"><img src="images/actions/1-14胸部拉伸.jpg"><span>四足俯卧撑</span></a></li>
-                        <li class="box1"><a href="#"><img src="images/actions/1-15扩胸运动.jpg"><span>四足俯卧撑</span></a></li>
-                        <li class="box1"><a href="#"><img src="images/actions/1-16坐姿收腿.jpg"><span>四足俯卧撑</span></a></li>
-                        <li class="box1"><a href="#"><img src="images/actions/1-17腹部拉伸.jpg"><span>四足俯卧撑</span></a></li>
-                        <li class="box1"><a href="#"><img src="images/actions/1-18坐姿交替收腿.jpg"><span>四足俯卧撑</span></a></li>
-                        <li class="box1"><a href="#"><img src="images/actions/1-19背部拉伸.jpg"><span>四足俯卧撑</span></a></li>
-                        <li class="box1"><a href="#"><img src="images/actions/1-20过顶交替收腿.jpg"><span>四足俯卧撑</span></a></li>
-                </ul>
+        <div id="video_box"  v-for="vid in video">
+            <div id="video_box_1">
+            <video id="video_player" width="1200" height="675" loop="loop" controls autoplay muted>
+                <source :src="vid.act_vid_url" type="video/mp4">
+            </video>
             </div>
-            <div class="pagination_box">
-                <nav>
-                  <ul class="pagination">
-                    <li class="disabled">
-                      <a href="#!">
-                        <span><i class="mdi mdi-chevron-left"></i></span>
-                      </a>
-                    </li>
-                    <li class="active"><a href="#">1</a></li>
-                    <li><a href="#!">2</a></li>
-                    <li><a href="#!">3</a></li>
-                    <li><a href="#!">4</a></li>
-                    <li><a href="#!">5</a></li>
-                    <li>
-                      <a href="#!">
-                        <span><i class="mdi mdi-chevron-right"></i></span>
-                      </a>
-                    </li>
-                  </ul>
-                </nav>
-            </div>
+            <span>{{ vid.act_name }}</span>
         </div>
     </main>
     <!--End 页面主要内容-->
   </div>
 </div>
-
+<script>
+    if (!sessionStorage.nickname) {
+        window.alert('请先登录')
+        location.href = '/static/lyear_pages_login_3.html'
+    }
+</script>
 <script type="text/javascript" src="js/jquery.min.js"></script>
 <script type="text/javascript" src="js/bootstrap.min.js"></script>
 <script type="text/javascript" src="js/perfect-scrollbar.min.js"></script>
@@ -350,9 +316,14 @@
                 avatar: sessionStorage.getItem('avatar'),
                 nickname: sessionStorage.getItem('nickname')
             },
-            action:{
-                pic_url:
-            }
+            video: []
+        },
+        created() {
+            fetch('/video/' + location.search)
+            .then(resp => resp.json())
+            .then(json => {
+                this.video = json.video
+            })
         },
         methods :{
             logout() {

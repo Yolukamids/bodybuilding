@@ -1,5 +1,8 @@
+body{
+	text-align: center;
+}
 .box1 {
-	border: 1px solid red;
+	/*border: 1px solid red;*/
 	list-style: none;
 	width: 350px;
 	height: 250px;
@@ -28,4 +31,22 @@
 #action_box {
 	height: auto;
 	width: 100%;
+}
+
+#video_box {
+	text-align: center;
+	margin: 0 auto;
+	/*border: 1px solid red;*/
+}
+#video_player{
+	margin: 0 auto;
+}
+
+.video_name {
+	float: left;
+}
+
+.cont {
+
+	/*border: 1px solid red;*/
 }

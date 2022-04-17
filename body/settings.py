@@ -78,7 +78,7 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'bodybuilding',
-        'HOST': '192.168.2.18',
+        'HOST': '192.168.1.6',
         'PORT': 3306,
         'USER': 'zhangqin',
         'PASSWORD': 'zhangqin.916',
