@@ -49,11 +49,11 @@
               </ul>
             </li>
             <li class="nav-item nav-item-has-subnav">
-              <a href="javascript:void(0)"><i class="mdi mdi-format-align-justify"></i>动作库</a>
+              <a href="javascript:void(0)"><i class="mdi mdi-format-align-justify"></i>健身库</a>
               <ul class="nav nav-subnav">
-                <li> <a href="action_base.html">基本元素</a> </li>
-                <li> <a href="lyear_forms_radio.html">单选框</a> </li>
-                <li> <a href="lyear_forms_checkbox.html">复选框</a> </li>
+                <li> <a href="action_base.html">动作库</a> </li>
+                <li> <a href="course_base.html">特色课程</a> </li>
+                <li> <a href="food_base.html">饮食查询</a> </li>
                 <li> <a href="lyear_forms_switch.html">开关</a> </li>
               </ul>
             </li>
@@ -68,8 +68,8 @@
                 <li> <a href="lyear_pages_guide.html">表单向导</a> </li>
                 <li> <a href="lyear_pages_register.html">登录页面</a> </li>
                 <li> <a href="lyear_pages_login_2.html">登录页面2</a> </li>
-                <li> <a href="lyear_pages_login_3.html">登录页面3</a> </li>
-                <li> <a href="lyear_pages_login_4.html">登录页面4</a> </li>
+                <li> <a href="body_login.html">登录页面3</a> </li>
+                <li> <a href="course_details.html">登录页面4</a> </li>
                 <li> <a href="lyear_pages_error.html">错误页面</a> </li>
               </ul>
             </li>
@@ -288,7 +288,7 @@
             <div id="action_box">
                 <ul id="box_list">
                     <li class="box1" v-for="action in actions">
-                        <a :href="'/static/video.html?id=' + action.act_id">
+                        <a :href="'/static/action_video.html?id=' + action.act_id">
                             <img :src="action.act_pic_url">
                             <span>{{ action.act_name }}</span>
                         </a>
@@ -304,17 +304,13 @@
                 <nav>
                   <ul class="pagination">
                     <li class="disabled">
-                      <a href="#!">
+                      <a href="#" :disabled="prevPage == null" onclick="app.back()">
                         <span><i class="mdi mdi-chevron-left"></i></span>
                       </a>
                     </li>
-                    <li class="active"><a href="#">1</a></li>
-                    <li><a href="#!">2</a></li>
-                    <li><a href="#!">3</a></li>
-                    <li><a href="#!">4</a></li>
-                    <li><a href="#!">5</a></li>
+                      <li><a href="#!">第{{ current_page }}页</a></li>
                     <li>
-                      <a href="#!">
+                      <a href="#" :disabled="nextPage == null" onclick="app.forward()">
                         <span><i class="mdi mdi-chevron-right"></i></span>
                       </a>
                     </li>
@@ -329,7 +325,7 @@
 <script>
     if (!sessionStorage.nickname) {
         window.alert('请先登录')
-        location.href = '/static/lyear_pages_login_3.html'
+        location.href = 'body_login.html'
     }
 </script>
 <script type="text/javascript" src="js/jquery.min.js"></script>
@@ -341,6 +337,9 @@
     let app = new Vue({
         el: '#header',
         data: {
+            current_page: 1,
+            prevPage: null,
+            nextPage: null,
             user:{
                 username: sessionStorage.getItem('username'),
                 avatar: sessionStorage.getItem('avatar'),
@@ -349,13 +348,39 @@
             actions: []
         },
         created() {
-            fetch('/actions/')
-            .then(resp => resp.json())
-            .then(json => {
-                this.actions = json.actions
-            })
+            this.current_page = 1
+            let url = '/actions/?page=' + this.current_page
+            this.loadData(url)
         },
         methods :{
+            loadData(url) {
+                fetch(url)
+                .then(resp => resp.json())
+                .then(json => {
+                    this.actions = json.results
+                    this.prevPage = json.previous
+                    this.nextPage = json.next
+                })
+            },
+            search() {
+                this.current_page = 1
+                let url = '/actions/?page=' + this.current_page
+                this.loadData(url)
+            },
+            back() {
+                this.current_page -= 1
+                if(this.current_page <= 10){
+                    this.current_page = 1
+                }
+                this.loadData(this.prevPage)
+            },
+            forward() {
+                this.current_page += 1
+                if(this.current_page >= 10){
+                    this.current_page = 10
+                }
+                this.loadData(this.nextPage)
+            },
             logout() {
                 sessionStorage.clear()
                 location.href = '/'

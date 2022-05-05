@@ -1,6 +1,9 @@
 body{
 	text-align: center;
 }
+li {
+	list-style: none;
+}
 .box1 {
 	/*border: 1px solid red;*/
 	list-style: none;
@@ -9,6 +12,18 @@ body{
 	float: left;
 	margin: 10px 10px;
 }
+
+.box2 {
+	float: left;
+    width: 430px;
+    height: 200px;
+    margin-right: 18px;
+    margin-bottom: 18px;
+    position: relative;
+    cursor: pointer;
+    overflow: hidden;
+}
+
 .box1 a {
 	color: black;
 }
@@ -46,7 +61,190 @@ body{
 	float: left;
 }
 
+.course_body{
+	height: auto;
+	width: 100%;
+}
+#course_box {
+	height: auto;
+	width: 100%;
+}
+.course_cont {
+	border: 1px solid red;
+	height: 20px;
+	width: 388px;
+}
+.pic_fake {
+	position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    height: 400px;
+    line-height: 400px;
+    margin-top: -200px;
+}
+h4 {
+	font-size: 24px;
+	text-shadow: 0px 2px 2px rgb(0 0 0 / 75%);
+    color: #fff;
+    position: absolute;
+    top: 24px;
+    left: 22px;
+    z-index: 11;
+}
 .cont {
+    text-shadow: 0px 2px 2px rgb(255 255 255 / 75%);
+    font-size: 14px;
+    color: #fff;
+    top: 60px;
+    left: 22px;
+    line-height: 26px;
+    z-index: 11;
+}
+.cont span {
+	color: black;
+}
+p {
+	margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font-weight: normal;
+    vertical-align: baseline;
+}
 
-	/*border: 1px solid red;*/
+.act_day1 {
+	float: left;
+	margin-left: 10px;
+}
+
+.act_day2 {
+	float: left;
+}
+
+.act_day3 {
+	float: left;
+}
+
+.container{
+	position: relative;
+	width: 1080px;
+	margin-left: 200px;
+}
+.main {
+	overflow: hidden;
+	/* 设置显示窗口的宽高 */
+	height: 400px;
+	margin: 0 50px;
+}
+
+.ul-img {
+	/* 盒子的宽度 */
+	width: 920px;
+	display: flex;
+	flex-wrap: nowrap;
+	padding: 0px 0px;
+	z-index: 1000;
+}
+
+#video_player {
+	/* 设置图片的宽高 */
+	height: 260px;
+	width: 300px;
+}
+
+.li_list_style {
+	list-style-type: none;
+	/* display: inline-block; */
+	margin: 0 10px;
+}
+
+.left-r {
+	position: absolute;
+	top: 150px;
+	width: 1060px;
+	height: 30px;
+	display: flex;
+	justify-content: space-between;
+	z-index: 9000;
+}
+
+.left {
+	height: 50px;
+	width: 50px;
+	cursor: pointer;
+}
+
+.r {
+	height: 50px;
+	cursor: pointer;
+	width: 50px;
+}
+
+.fdcate_body {
+	text-align: center;
+	padding: 0;
+	margin: 0;
+
+}
+
+#fdcate_box {
+	text-align: center;
+}
+
+#fdcate_list {
+	height: auto;
+	width: 1600px;
+}
+
+.fdcate_box {
+	text-align: center;
+	position: relative;
+	float: left;
+	width: 380px;
+	height: 200px;
+	margin: 40px 40px;
+}
+
+.fdcate_box img {
+	position: absolute;
+	margin-left: -189px;
+	margin-top: -1px;
+	width: 200px;
+	height: 200px;
+}
+.fdcate_box span {
+	position: absolute;
+	margin-left: 20px;
+}
+.fd_category {
+	font-size: 20px;
+}
+.food_box {
+	width: 800px;
+	height: auto;
+}
+
+.food_list {
+	width: 800px;
+	height: 150px;
+	position: relative;
+	margin-top: 10px;
+}
+
+.food_info img {
+	position: absolute;
+	float: left;
+	margin-left: -300px;
+	width: 150px;
+	height: 150px;
+}
+
+.food_info span {
+	position: absolute;
+	margin-left: -100px;
+}
+
+.fd_energy {
+	margin-top: 30px;
 }

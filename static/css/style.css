@@ -1,0 +1,15 @@
+.main-product1{background: #f8f8f8;width: 1170px;position: absolute;left: 20%;top: 20%;}
+.layui-container{width:1170px}
+.rollBox{width:1170px;overflow:hidden;}
+.rollBox .leftBottom{height: 20px;width: 20px;overflow: hidden;float: left;left: 15px;display: none;margin: 100px 0 0 0;position: absolute;cursor: pointer;text-align: center;background: #afa4a4;border-radius: 20px;}
+.rollBox .rightBottom{right: 0;display: none;height: 20px;width: 20px;overflow: hidden;float: right;right: 15px;margin: 100px 0 0 0;position: absolute;cursor: pointer;text-align: center;background: #afa4a4;border-radius: 20px;}
+.rollBox:hover .leftBottom{display: block}
+.rollBox:hover .rightBottom{display: block;}
+.rollBox .cont{width:1170px;overflow:hidden;float:left;}
+.rollBox .srcCont{width:10000000px;}
+.rollBox .cont .pic{width:390px;float:left;text-align:center;}
+.rollBox .cont .pic img{width:390px;padding: 0 1px;background:#fff;display:block;margin:0 auto;}
+.rollBox .cont .pic p{line-height:26px;color:#505050;}
+.rollBox .cont a:link,.rollBox .cont a:visited{color:#626466;text-decoration:none;}
+.rollBox .cont a:hover{color:#f00;text-decoration:underline;}
+.rollBox #listImg1,.rollBox #listImg2{float:left;}

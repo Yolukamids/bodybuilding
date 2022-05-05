@@ -16,10 +16,53 @@ class Action(models.Model):
     act_position = models.CharField(max_length=50)
     act_pic_url = models.CharField(max_length=1024)
     act_vid_url = models.CharField(max_length=1024)
+    act_of_cour_id = models.IntegerField()
+    act_of_day1 = models.IntegerField(blank=True, null=True)
+    act_of_day2 = models.IntegerField(blank=True, null=True)
+    act_of_day3 = models.IntegerField(blank=True, null=True)
+    act_day1_order = models.IntegerField(blank=True, null=True)
+    act_day2_order = models.IntegerField(blank=True, null=True)
+    act_day3_order = models.IntegerField(blank=True, null=True)
 
     class Meta:
         managed = False
         db_table = 'tb_action'
+
+
+class Course(models.Model):
+    cour_id = models.AutoField(primary_key=True)
+    cour_name = models.CharField(max_length=20)
+    cour_lvl = models.CharField(max_length=20)
+    cour_type = models.CharField(max_length=50)
+    cour_position = models.CharField(max_length=50)
+    cour_pic_url = models.CharField(max_length=1024)
+    cour_details_url = models.CharField(max_length=1024)
+
+    class Meta:
+        managed = False
+        db_table = 'tb_course'
+
+
+class Fdcategory(models.Model):
+    fdcate_id = models.AutoField(primary_key=True)
+    fdcate_name = models.CharField(max_length=100)
+    fdcate_pic_url = models.CharField(max_length=1024)
+
+    class Meta:
+        managed = False
+        db_table = 'tb_fdcategory'
+
+
+class Food(models.Model):
+    food_id = models.AutoField(primary_key=True)
+    food_name = models.CharField(max_length=100)
+    food_energy = models.CharField(max_length=50)
+    food_pic_url = models.CharField(max_length=1024)
+    group_id = models.PositiveIntegerField()
+
+    class Meta:
+        managed = False
+        db_table = 'tb_food'
 
 
 class User(models.Model):
